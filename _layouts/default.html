@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>{{ page.title }}</title>
+    {% if page.description %}<meta name="description" content="{{ page.description }}" />{% endif %}
+    {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}" />{% endif %}
+    <meta name="author" content="{{ site.author }}" />
+    <link rel="stylesheet" href="/css/style.css?v={{ site.time | date:"%Y%m%d%I%M%S" }}" type="text/css" media="screen, projection" />
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for bradym.net" href="/feed/" />
+    {% for category in site.categories %}
+        <link rel="alternate" type="application/rss+xml" title="RSS Feed for bradym.net: {{ category[0] | downcase }}" href="/feed/{{ category[0] | downcase }}.xml" />
+    {% endfor %}
+    <!-- HTML5 shim for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <script type="text/javascript" src="http://ie7-js.googlecode.com/svn/version/2.1(beta3)/IE8.js"></script>
+        <script type="text/javascript" src="/js/DD_roundies_0.0.2a.js"></script>
+        <script type="text/javascript" >DD_roundies.addRule('.rounded', '10px');</script>
+        <link rel="stylesheet" href="/css/ie.css" type="text/css" media="screen, projection" />
+    <![endif]-->
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-1002744-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    {% if page.search %}
+    <script type="text/javascript">
+        (function() {
+            var cx = '015305606879014717698:dgrp3sn7dl8';
+            var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+            gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                    '//www.google.com/cse/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+        })();
+    </script>
+    {% endif %}
+
+</head>
+<body>
+<div id="container" class="container">
+    <div id="header" class="span-24 rounded" style="line-height:3em;">
+       <h1><a href="/">random thoughts of a code monkey</a></h1>
+    </div>
+    <div id="menu" class="span-24 rounded">
+       <ul>
+           {% for node in site.pages %}
+               {% if node.group == 'navigation' %}
+                   <li><a href="{{ site.base_url }}{{node.url }}">{{node.title}}</a></li>
+               {% endif %}
+           {% endfor %}
+
+           {% for category in site.categories %}
+               <li><a href="{{ site.base_url }}/{{ category[0] | downcase }}/">{{ category[0] }}</a></li>
+           {% endfor %}
+
+           <li id="search_li">
+               <form action="/search.html" method="get" style="display:inline;">
+                   <input type="hidden" value="015305606879014717698:dgrp3sn7dl8" name="cx"/>
+                   <input type="hidden" value="FORID:9" name="cof"/>
+                   <input type="hidden" value="UTF-8" name="ie"/>
+                   <input class="textfield searchtip" id="search_query" type="text" size="24" name="q"/>
+                   <input type="submit" name="submit" value="Search" />
+               </form>
+           </li>
+       </ul>
+    </div>
+    <div>
+        {{ content }}
+    </div>
+    <footer id="footer" class="span-24 rounded">
+        Copyright &copy; 2002-{{ site.time | date:"%Y" }} Brady Mitchell
+    </footer>
+</div>
+</body>
+</html>

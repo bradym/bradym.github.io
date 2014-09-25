@@ -1,0 +1,11 @@
+---
+layout: default
+---
+{% for post in site.posts limit:5%}
+    <div class="content_box span-24 rounded multi_listing">
+        <h2><a href="{{ post.url | downcase}}">{{ post.title }}</a></h2>
+        {{ post.date | date: "%B %d, %Y"}}
+        <br /><br />
+        {{ post.description }}
+    </div>
+{% endfor %}
