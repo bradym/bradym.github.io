@@ -28,6 +28,9 @@ disqusShortname = 'bradymnet'
   # (default is Description or Summary metadata in the front matter)
   rssFullText = false
 
+  # Enable comments by default. Can disable for individual page in front matter.
+  showComments = true
+
 [languages]
   [languages.en]
     title = "Wandering Thoughts"

@@ -1,3 +1,5 @@
+{{ if $.Param "showComments" }}
 <div style="padding-top: 15px;">
     {{ template "_internal/disqus.html" . }}
 </div>
+{{ end }}
