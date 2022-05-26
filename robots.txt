@@ -1,4 +1,0 @@
-Sitemap: http://bradym.net/sitemap.xml
-
-User-agent: *
-Disallow: /search.html
