@@ -1,4 +1,4 @@
-baseURL = "https://www.bradym.net"
+baseURL = "http://www.bradym.net"
 languageCode = "en-us"
 title = "Wandering Thoughts"
 theme = "hello-friend"
