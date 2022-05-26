@@ -10,7 +10,7 @@ title: Geocoding with PHP
 url: /php/geocoding-with-php.html
 ---
 In my [last
-post](http://bradym.net/php/http_build_query-and-arg_separator_output) I
+post](php/http_build_query-and-arg_separator_output.html) I
 mentioned geocoding using the [Yahoo Geocoding
 API](http://developer.yahoo.com/maps/rest/V1/geocode.html), so I thought
 I'd post some code to do exactly that.
@@ -18,7 +18,7 @@ I'd post some code to do exactly that.
 For the purposes of this example, assume that we have a very simple
 MySQL database table with this structure:
 
-{{< highlight mysql >}}
+```sql
 CREATE TABLE addresses (
         id int(11) NOT NULL auto_increment,
         street varchar(255) default NULL,
@@ -99,13 +99,7 @@ else{
 }
 ?>
 ```
-The code is documented pretty well so I'll just point out a couple
-things
+The code is documented pretty well so I'll just point out a couple things:
 
--   The Yahoo Geocoding API can return either XML or PHP serialized
-    objects. I chose PHP serialized objects because it's easier to deal
-    with for what I'm trying to do.
--   http\_build\_query does not exist in PHP4. To use this code with
-    PHP4 you could use the [PHP\_COMPAT Pear
-    Package](http://pear.php.net/package/PHP_Compat).
-
+- The Yahoo Geocoding API can return either XML or PHP serialized objects. I chose PHP serialized objects because it's easier to deal with for what I'm trying to do.
+- http_build_query does not exist in PHP4. To use this code with PHP4 you could use the [PHP_COMPAT Pear Package](http://pear.php.net/package/PHP_Compat).

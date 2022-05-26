@@ -22,7 +22,9 @@ loops, and really makes the problem more complex than it needs to be.
 
 ```php
 <?php
-$url = modify_url(array('p' => 4, 'show' => 'column'), 'http://www.example.com/page.php?p=5&show=list&style=2');
+$url = modify_url(
+    array('p' => 4, 'show' => 'column'),
+    'http://www.example.com/page.php?p=5&show=list&style=2');
 ?>
 ```
 

@@ -21,26 +21,23 @@ included with OS X, it seems like overkill to use one of those packages.
 Contrary to popular belief, it is possible to get Xdebug working with
 the OS X standard Apache/PHP installation. Here's how I did it:
 
-1.  [Download Xdebug source](http://xdebug.org/download.php)
-2.  Extract the xdebug tarball
-3.  cd into the xdebug directory
-4.  Run: phpize
-5.  Run: MACOSX\_DEPLOYMENT\_TARGET=10.5 CFLAGS="-arch ppc -arch ppc64
-    -arch i386 -arch x86\_64 -g -Os -pipe -no-cpp-precomp"
-    CCFLAGS="-arch ppc -arch ppc64 -arch i386 -arch x86\_64 -g -Os
-    -pipe" CXXFLAGS="-arch ppc -arch ppc64 -arch i386 -arch x86\_64 -g
-    -Os -pipe" LDFLAGS="-arch ppc -arch ppc64 -arch i386 -arch x86\_64
-    -bind\_at\_load" ./configure --enable-xdebug
-6.  Run: make
-7.  cp modules/xdebug.so
-    /usr/lib/php/extensions/no-debug-non-zts-20060613 (note: your path
-    may be slightly different)
-8.  add the following line to php.ini:
-    zend\_extension="/usr/lib/php/extensions/no-debug-non-zts-20060613/xdebug.so"
-9.  Run: sudo apachectl restart
-10. Write a PHP page that calls "phpinfo();" Load it in a browser and
-    look for the info on the xdebug module. If you see it, you have been
-    successful!
+1. [Download Xdebug source](http://xdebug.org/download.php)
+2. Extract the xdebug tarball
+3. cd into the xdebug directory
+
+```bash
+phpize
+
+MACOSX_DEPLOYMENT_TARGET=10.5 CFLAGS="-arch ppc -arch ppc64 -arch i386 -arch x86\_64 -g -Os -pipe -no-cpp-precomp" CCFLAGS="-arch ppc -arch ppc64 -arch i386 -arch x86\_64 -g -Os -pipe" CXXFLAGS="-arch ppc -arch ppc64 -arch i386 -arch x86\_64 -g -Os -pipe" LDFLAGS="-arch ppc -arch ppc64 -arch i386 -arch x86\_64 -bind\_at\_load" ./configure --enable-xdebug```
+
+make
+
+cp modules/xdebug.so /usr/lib/php/extensions/no-debug-non-zts-20060613 # note: your path may be slightly different
+```
+
+4. add the following line to php.ini: `zend_extension="/usr/lib/php/extensions/no-debug-non-zts-20060613/xdebug.so"`
+5. sudo apachectl restart
+6. Write a PHP page that calls `phpinfo();` Load it in a browser and look for the info on the xdebug module. If you see it, you have been successful!
 
 This is simply a modified version of the README file that comes with the
 xdebug source. The most important tweak is step 5, which sets the

@@ -8,25 +8,13 @@ keywords: canonical redirect, iis, php, windows shared hosting
 title: Canonical redirect on IIS using PHP
 url: /php/canonical-redirect-iis.html
 ---
-According to the [seo
-experts](http://www.mattcutts.com/blog/seo-advice-url-canonicalization/)
-of the world, it is good practice to force your website to always use
-the same domain. So, instead of having your site work at both
-www.example.com and example.com, choose one. Once you've chosen which
-form of your site to use, it's time to setup 301 redirects to enforce
-that.
+According to the [seo experts](http://www.mattcutts.com/blog/seo-advice-url-canonicalization/) of the world, it is good practice to force your website to always use the same domain. So, instead of having your site work at both `www.example.com` and `example.com`, choose one. Once you've chosen which form of your site to use, it's time to setup 301 redirects to enforce that.
 
-If you're using Apache, it's very easy, just add a quick mod\_rewrite
-rule. You can [remove the
-www](http://www.askapache.com/htaccess/mod_rewrite-tips-and-tricks.html#require-no-www-in-htaccess)
-or [force the use of
-www](http://www.askapache.com/htaccess/mod_rewrite-tips-and-tricks.html#require-the-www-in-htaccess).
-But since IIS doesn't use .htaccess files, it takes a little more
-effort.
+If you're using Apache, it's very easy, just add a quick mod_rewrite rule. You can [remove the www](http://www.askapache.com/htaccess/mod_rewrite-tips-and-tricks.html#require-no-www-in-htaccess) or [force the use of www](http://www.askapache.com/htaccess/mod_rewrite-tips-and-tricks.html#require-the-www-in-htaccess). But since IIS doesn't use `.htaccess` files, it takes a little more effort.
 
 ### Create a php.ini with the following content and upload it to your site root
 
-{{< highlight ini >}}
+```ini
 cgi.force_redirect = 0
 auto_prepend_file = C:\php_includes\canonical.php
 ```
@@ -58,15 +46,7 @@ if(substr($_SERVER['HTTP_HOST'],0,4) !== 'www.' && $_SERVER['LOCAL_ADDR'] !== '1
 
 ### Notes:
 
--   This method assumes that you don't have access to modify the server
-    settings, ie: shared windows hosting. If you are able to modify how
-    IIS is setup I'm sure there's a better way to do this.
--   When PHP is run as a cgi, you can overwrite the php.ini settings by
-    putting a php.ini in the site root. So if your windows host is not
-    running php as a cgi, this won't work. I think that php is always
-    run as a cgi on IIS, but I could be wrong.
--   This will only work if the site is using PHP - if you have a
-    completely static site this won't help you. In order to use this
-    with a static site, you'd have to change the server settings to
-    treat your html files as php files.
+- This method assumes that you don't have access to modify the server settings, ie: shared windows hosting. If you are able to modify how IIS is setup I'm sure there's a better way to do this.
+- When PHP is run as a cgi, you can overwrite the php.ini settings by putting a php.ini in the site root. So if your windows host is not running php as a cgi, this won't work. I think that php is always run as a cgi on IIS, but I could be wrong.
+- This will only work if the site is using PHP - if you have a completely static site this won't help you. In order to use this with a static site, you'd have to change the server settings to treat your html files as php files.
 

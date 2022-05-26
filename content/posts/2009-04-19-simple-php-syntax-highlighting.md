@@ -12,13 +12,13 @@ One benefit to working as part of a development team is that you can ask your fe
 
 Here's one way that does not require any external libraries and is very easy to setup:
 
-###Add this line to .htaccess
-{{< highlight apache >}}
+## Add this line to .htaccess
+```apache
 RewriteRule ^(.*)\.phps$ viewsource.php?file=$1.php [QSA,L]
 ```
 
 This rule sends all requests for files ending in .phps to the viewsource.php file with the path as an argument.
-###Put the below script in the document root of your development server
+## Put the below script in the document root of your development server
 ```php
 <?php
 // This script should *NEVER* be used on a production server!
@@ -81,6 +81,6 @@ echo "<div><div class=\"num_margin\">$lines</div><div>$content</div></div>";
 </html>
 ```
 
-Now when you visit a link like: http://localhost/info.phps it will show the source of the file.
+Now when you visit a link like: `http://localhost/info.phps` it will show the source of the file.
 
-*_Note:  This script should never be used in production!_*
+Note:  This script should **never** be used in production!

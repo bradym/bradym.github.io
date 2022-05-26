@@ -11,10 +11,10 @@ url: /misc/cant-get-jcalendar-to-select-a-specific-date-when-opening.html
 There is an error in calendar-setup.js that prevents the setting of an
 initial date for the calendar. Go to line 159 and replace the code:
 
-{{< highlight js >}}
+```javascript
 if (dateEl) params.date = Date.parseDate(dateEl.value || dateEl.innerHTML, dateFmt);
 ```
 with:
-{{< highlight js >}}
+```javascript
 if (dateEl && (dateEl.value || dateEl.innerHTML)) params.date = Date.parseDate(dateEl.value || dateEl.innerHTML, dateFmt);
 ```
