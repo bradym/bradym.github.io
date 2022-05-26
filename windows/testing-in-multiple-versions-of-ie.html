@@ -1,0 +1,49 @@
+<!doctype html><html lang=en><head><title>Testing in multiple versions of IE ::
+Wandering Thoughts</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="One question that I get all the time is how to test a website in both IE6 and IE7 on the same computer. Here are some options:
+Virtual Machine #  Because the code for Internet Explorer is so tightly integrated into Windows, the only way to run the &amp;ldquo;pure / authentic&amp;rdquo; version of IE6 on the same machine as IE7 is by using a Virtual Machine. Microsoft has made this easy by providing a Virtual PC image for this purpose."><meta name=keywords content="ie,,testing,sites,in,ie,,multiple,versions,of,ie"><meta name=robots content="noodp"><link rel=canonical href=https://www.bradym.net/windows/testing-in-multiple-versions-of-ie.html><link rel=stylesheet href=https://www.bradym.net/assets/style.css><link rel=stylesheet href=https://www.bradym.net/style.css><link rel=apple-touch-icon-precomposed sizes=144x144 href=https://www.bradym.net/img/apple-touch-icon-144-precomposed.png><link rel="shortcut icon" href=https://www.bradym.net/img/favicon.png><link href=https://www.bradym.net/assets/fonts/Inter-Italic.woff2 rel=preload type=font/woff2 as=font crossorigin><link href=https://www.bradym.net/assets/fonts/Inter-Regular.woff2 rel=preload type=font/woff2 as=font crossorigin><link href=https://www.bradym.net/assets/fonts/Inter-Medium.woff2 rel=preload type=font/woff2 as=font crossorigin><link href=https://www.bradym.net/assets/fonts/Inter-MediumItalic.woff2 rel=preload type=font/woff2 as=font crossorigin><link href=https://www.bradym.net/assets/fonts/Inter-Bold.woff2 rel=preload type=font/woff2 as=font crossorigin><link href=https://www.bradym.net/assets/fonts/Inter-BoldItalic.woff2 rel=preload type=font/woff2 as=font crossorigin><meta name=twitter:card content="summary"><meta name=twitter:title content="Testing in multiple versions of IE"><meta name=twitter:description content="Internet Explorer is the bane of every web developer's existance. What makes it worse is how difficult Microsoft makes it to test sites in different versions of IE."><meta property="og:title" content="Testing in multiple versions of IE"><meta property="og:description" content="Internet Explorer is the bane of every web developer's existance. What makes it worse is how difficult Microsoft makes it to test sites in different versions of IE."><meta property="og:type" content="article"><meta property="og:url" content="https://www.bradym.net/windows/testing-in-multiple-versions-of-ie.html"><meta property="article:section" content="posts"><meta property="article:published_time" content="2008-08-27T00:00:00+00:00"><meta property="article:modified_time" content="2008-08-27T00:00:00+00:00"><meta property="og:site_name" content="Wandering Thoughts"></head><body class=dark-theme><div class=container><header class=header><span class=header__inner><a href=/ class=logo style=text-decoration:none><span class=logo__mark><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44"><path fill="none" d="M15 8l14.729 14.382L15 35.367"/></svg></span><span class=logo__text>wandering thoughts</span>
+<span class=logo__cursor></span></a>
+<span class=header__right><nav class=menu><ul class="menu__inner menu__inner--desktop"><li><a href=/tags/>Tags</a></li></ul><ul class="menu__inner menu__inner--mobile"><li><a href=/tags/>Tags</a></li></ul></nav><span class=menu-trigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></span><span class=theme-toggle><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 41c10.4934.0 19-8.5066 19-19C41 11.5066 32.4934 3 22 3 11.5066 3 3 11.5066 3 22s8.5066 19 19 19zM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22z"/></svg></span></span></span></header><div class=content><div class=post><h1 class=post-title>Testing in multiple versions of IE</h1><div class=post-meta><span class=post-date>2008-08-27</span></div><span class=post-tags><a href=https://www.bradym.net/tags/windows/>#Windows</a>&nbsp;</span><div class=post-content><p>One question that I get all the time is how to test a website in both
+IE6 and IE7 on the same computer. Here are some options:</p><h3 id=virtual-machine>Virtual Machine
+<a href=#virtual-machine class=h-anchor aria-hidden=true>#</a></h3><p>Because the code for Internet Explorer is so tightly integrated into
+Windows, the only way to run the &ldquo;pure / authentic&rdquo; version of IE6 on
+the same machine as IE7 is by using a Virtual Machine. Microsoft has
+made this easy by providing a <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=21eabb90-958f-4b64-b5f1-73d0a413c8ef&displaylang=en">Virtual PC image for this
+purpose</a>.
+Virtual PC is also available for <a href=http://www.microsoft.com/windows/products/winfamily/virtualpc/default.mspx>free
+download</a>,
+so this is a great option. There are two downsides to this option, the
+VPC image is over 400MB in size, and the image periodically expires
+requiring a new download every 6 months or so.</p><p>If you have a copy of Windows XP sitting around you could use <a href=http://www.microsoft.com/windows/products/winfamily/virtualpc/default.mspx>Virtual
+PC</a>,
+<a href=http://vmware.com/>VMWare</a>, <a href=http://virtualbox.org/>VirtualBox</a> or
+any other virtualization software to create your own non-expiring image
+for testing.</p><h3 id=ie6-standalone>IE6 Standalone
+<a href=#ie6-standalone class=h-anchor aria-hidden=true>#</a></h3><p>The <a href=http://browsers.evolt.org/>Evolt Browser Archive</a> includes a
+<a href=http://browsers.evolt.org/download.php?/ie/32bit/standalone/ie6eolas_nt.zip>standalone version of
+IE6</a>.
+Simply download the zip archive, unzip and run iexplore.exe. Simplifiy
+your life by creating a shortcut in your start menu or on your desktop.
+This is my preferred method, mostly due to the simplicity, and has
+worked very well for me.</p><h3 id=multiple-ie>Multiple IE
+<a href=#multiple-ie class=h-anchor aria-hidden=true>#</a></h3><p>Want to test more than just IE6? <a href=http://tredosoft.com/Multiple_IE>Multiple
+IE</a> installs IE3 - IE6 standalone
+versions. It&rsquo;s been a long time since I&rsquo;ve cared about how something
+looked in anything earlier than IE6, but if you have a reason to test a
+site on an earlier version of IE, this is a good way to go.</p><h3 id=ie7-standalone>IE7 Standalone
+<a href=#ie7-standalone class=h-anchor aria-hidden=true>#</a></h3><p>The above options assume that you&rsquo;ve already installed IE7. The makers
+of Multiple IE also have an installer for <a href=http://tredosoft.com/IE7_standalone>IE7
+standalone</a> (but it&rsquo;s not
+integrated into Multiple IE). The idea here is that ou would run IE6
+natively, with IE7 in standalone mode. I&rsquo;ve never sucessfully used this
+option, but others have found it useful.</p><h3 id=gotchas>Gotchas
+<a href=#gotchas class=h-anchor aria-hidden=true>#</a></h3><p>Running a standalone version of Internet Explorer <em><strong>is not the same</strong></em>
+as running the native, built-into-windows version.</p><p>Due to IE&rsquo;s reliance on DLLs and registrty settings, things can get
+messy in certain situations. Take a look at <a href=http://www.positioniseverything.net/articles/multiIE.html>Taming Your Multiple IE
+Standalones</a>
+for more information on these possible snags. In short, they recommend
+using Multiple IE, as the registry hacks and DLLs are all included.</p></div><div class=pagination><div class=pagination__title><span class=pagination__title-h>Read other posts</span><hr></div><div class=pagination__buttons><span class="button previous"><a href=https://www.bradym.net/php/canonical-redirect-iis.html><span class=button__icon>←</span>
+<span class=button__text>Canonical redirect on IIS using PHP</span></a></span>
+<span class="button next"><a href=https://www.bradym.net/mysql/logging-requests-with-mysql.html><span class=button__text>Logging requests with MySQL</span>
+<span class=button__icon>→</span></a></span></div></div><div style=padding-top:15px><div id=disqus_thread></div><script type=application/javascript>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//bradymnet.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div></div></div><footer class=footer><div class=footer__inner><a href=/ class=logo style=text-decoration:none><span class=logo__mark><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44"><path fill="none" d="M15 8l14.729 14.382L15 35.367"/></svg></span><span class=logo__text>wandering thoughts</span>
+<span class=logo__cursor></span></a><div class=copyright><span>© 2022<span></span></div></div></footer><script src=https://www.bradym.net/assets/main.js></script>
+<script src=https://www.bradym.net/assets/prism.js></script></div></body></html>
